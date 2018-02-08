@@ -5,3 +5,7 @@ c:\users\adilson.moreira\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleA
 c:\users\adilson.moreira\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
 c:\users\adilson.moreira\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 c:\users\adilson.moreira\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\adilson.moreira\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\EntityFramework.dll
+C:\Users\adilson.moreira\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\adilson.moreira\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\EntityFramework.xml
+C:\Users\adilson.moreira\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.xml
