@@ -15,8 +15,8 @@ namespace CodeFirst.DAL
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Pessoa> Cad_Pessoas { get; set; }
-        public DbSet<Funcionario> Cad_Funcionario { get; set; }
+        public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<Funcionario> Funcionario { get; set; }
 
     }
 }

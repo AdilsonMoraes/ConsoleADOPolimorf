@@ -1,0 +1,11 @@
+Como Utilizar o Migrtions:
+
+1 - Abra o projeto e exclua a pasta migration ja criada no projeto codefist 
+2 - Clique clique em Tools >> Nuget P. Manager e abra o console.
+3 - Mudar o "Default Project" no console colocando o projeto do codefirst
+4 - Rodar no console:
+		Enable-Migrations -force
+		EntityFramework\Add-Migration Primeiro
+		EntityFramework\update-database
+
+OBS: Mude as strings de conexao no webconfig

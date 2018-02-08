@@ -6,6 +6,7 @@ namespace CadFuncionario
 {
     public class Funcionario : Pessoa 
     {
+        public int FuncionarioID { get; set; }
         public string Cargo { get; set; }
         public int CodNivel { get; set; }
         public string Nivel { get; set; }
