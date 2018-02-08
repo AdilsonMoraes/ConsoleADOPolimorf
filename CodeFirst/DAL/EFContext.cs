@@ -21,3 +21,5 @@ namespace CodeFirst.DAL
     }
 }
 
+//  Enable-Migrations –EnableAutomaticMigrations -force
+//  EntityFramework\update-database

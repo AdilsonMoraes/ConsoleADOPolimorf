@@ -8,7 +8,6 @@ namespace CodeFirst.Models
     public class Funcionario
     {
         public int FuncionarioID { get; set; }
-        public int CodNivel { get; set; }
         public string Cargo { get; set; }
         public string Nivel { get; set; }
         public int TempoDeCasaEmAnos { get; set; }

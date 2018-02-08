@@ -110,10 +110,19 @@ namespace ConsoleApp1
                 var ret = AcessObject.RecuperarLista();
 
                 string Dados = "";
+                var i = 0;
 
                 foreach (var item in ret)
                 {
-                    Dados = "Nome: " + item.Nome + "\n"
+                    i++;
+
+                    if (i > 1)
+                    {
+                        Dados = Dados + "\n" + "\n" + "======================================" + "\n" + "\n";
+                    }
+
+                    Dados = "\n" +
+                    Dados + "Nome: " + item.Nome + "\n"
                     + "Rg: " + item.Rg + "\n"
                     + "Cpf: " + item.Cpf + "\n"
                     + "Email: " + item.Email + "\n"
@@ -124,6 +133,11 @@ namespace ConsoleApp1
                     + "Salario Mensal: " + item.SalarioInicial + "\n"
                     + "Data de Admissão: " + item.DataAdmissao + "\n"
                     + "Bonus por tempo de Trabalho: " + item.QtdeBonus;
+                }                                                                       
+
+                if(Dados=="")
+                {
+                    Dados = "Registro não Encontrado!";
                 }
 
 
