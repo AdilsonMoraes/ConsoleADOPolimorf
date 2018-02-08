@@ -2,126 +2,62 @@
 using FuncoesGenericas;
 using System.Collections.Generic;
 using CadFuncionario;
-using Dao;
+using NegFuncionario;
 
 namespace ConsoleApp1
 {
     class Program
     {
-        public enum EnumAcao {AnulaZero, Consultar, Inserir, Excluir };
+        public enum EnumAcao { AnulaZero, Consultar, Inserir, Excluir };
 
         static void Main(string[] args)
-        {          
+        {
             string result = "";
+            var contador = 0;
             var acao = 0;
+            string Dados = "";
 
+            #region Entrada
             while (result == "")
             {
                 Console.WriteLine("O que deseja fazer:" + "\n" +
-                                "[1 - Consultar um Funcionario], " + "\n" +
-                                "[2 - Inserir um Funcionario], " + "\n" +
-                                "[3 - Excluir um Funcionario]");
+                                "    [1 - Consultar um Funcionario], " + "\n" +
+                                "    [2 - Inserir um Funcionario], " + "\n" +
+                                "    [3 - Excluir um Funcionario]");
+
                 result = Console.ReadLine();
             }
             acao = Convert.ToInt32(result);
+            #endregion
 
             if (acao == Convert.ToInt32(EnumAcao.Inserir))
             {
-                RetornaDados objDados = new RetornaDados();
-                DateTime dtAdmissao = new DateTime(2018, 08, 02);
 
-                result = "";
-                while (result == "")
-                {
-                    Console.WriteLine("Informe o Nome: ");
-                    result = Console.ReadLine();
-                }
-                objDados.Nome = result;
-
-                result = "";
-                while (result == "")
-                {
-                    Console.WriteLine("Informe o RG: ");
-                    result = Console.ReadLine();
-                }
-                objDados.Rg = result;
-
-                result = "";
-                while (result == "")
-                {
-                    Console.WriteLine("Informe o CPF: ");
-                    result = Console.ReadLine();
-                }
-                objDados.Cpf = result;
-
-                result = "";
-                while (result == "")
-                {
-                    Console.WriteLine("Informe o Email: ");
-                    result = Console.ReadLine();
-                }
-                objDados.Email = result;
-
-                result = "";
-                while (result == "")
-                {
-                    Console.WriteLine("Informe o Telefone: ");
-                    result = Console.ReadLine();
-                }
-                objDados.Telefone = result;
-
-                result = "";
-                while (result == "")
-                {
-                    Console.WriteLine("Informe o Cargo: ");
-                    result = Console.ReadLine();
-                }
-                objDados.Cargo = result;
-
-                result = "";
-                while (result == "")
-                {
-                    Console.WriteLine("Informe o Nivel: ([1 - Junior], [2 - Pleno], [3 - Senior]): ");
-                    result = Console.ReadLine();
-
-                    bool validacao = Funcoes.ValidaNumero(result);
-                    if (validacao == false)
-                    {
-                        Console.WriteLine("Informe o Nivel com Base em um Numero: ([1 - Junior], [2 - Pleno], [3 - Senior]): ");
-                        result = "";
-                    }
-                }
-                objDados.CodNivel = Convert.ToInt32(result);
-
-                objDados.RetornaNivel();
-                objDados.DataAdmissao = dtAdmissao;
-                objDados.CalcularSalario();
-                objDados.CalcularDissidio();
-                objDados.CalcularBonus();
-
-
-                Console.WriteLine("Dados Inseridos com Sucesso!");
-                Console.ReadKey();
 
             }
 
             if (acao == Convert.ToInt32(EnumAcao.Consultar))
             {
-                var ret = AcessObject.RecuperarLista();
+                #region Consulta
 
-                string Dados = "";
-                var i = 0;
+                var ret = NegFuncionario.Consulta.ConsultaFuncionario();
+                Dados = "";
 
+                contador = 0;
                 foreach (var item in ret)
                 {
-                    i++;
+                    contador++; //Soma 1 sempre que passar aqui
 
-                    if (i > 1)
+                    if (contador > 1)
                     {
                         Dados = Dados + "\n" + "\n" + "======================================" + "\n" + "\n";
                     }
+                    else
+                    {
+                        Dados = Dados + "\n";
+                    }
 
-                    Dados = "\n" +
+                    Dados =
                     Dados + "Nome: " + item.Nome + "\n"
                     + "Rg: " + item.Rg + "\n"
                     + "Cpf: " + item.Cpf + "\n"
@@ -133,13 +69,13 @@ namespace ConsoleApp1
                     + "Salario Mensal: " + item.SalarioInicial + "\n"
                     + "Data de Admissão: " + item.DataAdmissao + "\n"
                     + "Bonus por tempo de Trabalho: " + item.QtdeBonus;
-                }                                                                       
+                }
 
-                if(Dados=="")
+                if (Dados == "")
                 {
                     Dados = "Registro não Encontrado!";
                 }
-
+                #endregion
 
                 Console.WriteLine(Dados);
                 Console.ReadKey();
@@ -147,6 +83,30 @@ namespace ConsoleApp1
 
             if (acao == Convert.ToInt32(EnumAcao.Excluir))
             {
+                #region Exclusao
+                Funcionario objDados = new Funcionario();
+
+                result = "";
+                while (result == "")
+                {
+                    Console.WriteLine("Informe o Codigo do Funcionario: ");
+                    result = Console.ReadLine();
+                }
+                objDados.FuncionarioID = Convert.ToInt32(result);
+
+                var ret = NegFuncionario.Exclui.ExcluirPeloId(objDados.FuncionarioID);
+                #endregion
+
+                if (ret)
+                {
+                    Console.WriteLine("Funcionario Excluido com Sucesso: ");
+                }
+                else
+                {
+                    Console.WriteLine("Erro na exclusão: ");
+                }
+
+                result = Console.ReadLine();
 
             }
 

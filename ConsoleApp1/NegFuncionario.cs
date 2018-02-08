@@ -1,10 +1,12 @@
 ﻿using CadFuncionario;
 using FuncoesGenericas;
+using System.Collections.Generic;
+using Dao;
 
-namespace ConsoleApp1
+namespace NegFuncionario
 {
-
-    public class RetornaDados : Salario 
+    //classes abstrata
+    public class RetornaDados : Salario
     {
         private enum CodNiv { Junior, Pleno, Senior };
 
@@ -71,5 +73,37 @@ namespace ConsoleApp1
                 QtdeBonus = 0;
             }
         }
+
+    }
+
+    public class Consulta
+    {
+        public static List<Funcionario> ConsultaFuncionario()
+        {
+            var ret = AcessObject.ConsultaFuncionario();
+            return ret;
+        }
+    }
+
+    public class Exclui
+    {
+        public static bool ExcluirPeloId(int paramId)
+        {
+            var ret = false;
+            ret = AcessObject.ExcluirPeloId(paramId);
+            return ret;
+        }
+    }
+
+    public class Inserir
+    {
+        public int Salvar()
+        {
+            var ret = 0;
+
+            //ret = (int)comando.ExecuteScalar();
+            return ret;
+        }
+
     }
 }
