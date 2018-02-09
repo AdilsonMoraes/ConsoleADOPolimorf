@@ -1,5 +1,4 @@
 ﻿using CadPessoa;
-using FuncoesGenericas;
 using System;
 
 namespace CadFuncionario

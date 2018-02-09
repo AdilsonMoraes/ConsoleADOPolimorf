@@ -1,8 +1,5 @@
-﻿using System;
-using FuncoesGenericas;
-using System.Collections.Generic;
-using CadFuncionario;
-using NegFuncionario;
+﻿using CadFuncionario;
+using System;
 
 namespace ConsoleApp1
 {
@@ -13,9 +10,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string result = "";
+            string Dados = "";
             var contador = 0;
             var acao = 0;
-            string Dados = "";
 
             #region Entrada
             while (result == "")
@@ -73,7 +70,7 @@ namespace ConsoleApp1
 
                 if (Dados == "")
                 {
-                    Dados = "Registro não Encontrado!";
+                    Dados = MensagemPadrao.Mensagem.Nao_Existem_Registros;
                 }
                 #endregion
 
@@ -89,7 +86,7 @@ namespace ConsoleApp1
                 result = "";
                 while (result == "")
                 {
-                    Console.WriteLine("Informe o Codigo do Funcionario: ");
+                    Console.WriteLine(MensagemPadrao.Mensagem.Informe_Cod_Func);
                     result = Console.ReadLine();
                 }
                 objDados.FuncionarioID = Convert.ToInt32(result);
@@ -99,11 +96,11 @@ namespace ConsoleApp1
 
                 if (ret)
                 {
-                    Console.WriteLine("Funcionario Excluido com Sucesso: ");
+                    Console.WriteLine(MensagemPadrao.Mensagem.Exclusao_OK);
                 }
                 else
                 {
-                    Console.WriteLine("Erro na exclusão: ");
+                    Console.WriteLine(MensagemPadrao.Mensagem.Exclusao_NOK);
                 }
 
                 result = Console.ReadLine();

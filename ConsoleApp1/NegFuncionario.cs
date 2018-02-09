@@ -2,6 +2,7 @@
 using FuncoesGenericas;
 using System.Collections.Generic;
 using Dao;
+using MensagemPadrao;
 
 namespace NegFuncionario
 {

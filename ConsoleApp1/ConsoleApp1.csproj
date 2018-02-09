@@ -53,6 +53,7 @@
     <Compile Include="DAO.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="FuncoesGenericas.cs" />
+    <Compile Include="MsgPadrao.cs" />
     <Compile Include="NegFuncionario.cs" />
     <Compile Include="Pessoa.cs" />
     <Compile Include="Program.cs" />
